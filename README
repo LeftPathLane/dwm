@@ -46,3 +46,13 @@ Configuration
 -------------
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
+
+
+Testing
+-------------
+Testing can be done with [Xephyr](https://wiki.archlinux.org/title/Xephyr)  
+(*change MODKEY when nesting*)
+
+    Xephyr -br -ac -noreset -screen 1000x800 :1
+    export DISPLAY=:1
+    make clean dwm && ./dwm

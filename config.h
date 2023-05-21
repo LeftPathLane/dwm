@@ -7,6 +7,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Hasklug Nerd Font:size=12" };
 static const char dmenufont[]       = "Hasklug Nerd Font:size=12";
+static const char dmenulines[]      = "10";
 
 static const char col_nord0[] = "#2E3440";
 static const char col_nord1[] = "#3B4252";
@@ -70,7 +71,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_nord0, "-nf", col_nord4, "-sb", col_nord10, "-sf", col_nord6, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_nord0, "-nf", col_nord4, "-sb", col_nord10, "-sf", col_nord6, "-l", dmenulines, "-c", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 #include "movestack.c"

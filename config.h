@@ -3,6 +3,7 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Hasklug Nerd Font:size=12" };
@@ -41,8 +42,8 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{NULL,        NULL,       NULL,       0,            0,           -1,}
+	/* class      instance    title       tags mask     isfloating  isterminal  noswallow  monitor */
+	{"Alacritty", NULL,       NULL,       0,            0,          1,          0,         -1,}
 };
 
 /* layout(s) */

@@ -78,6 +78,7 @@ static const char *termcmd[]  = { "alacritty", NULL };
 
 #include "movestack.c"
 #include "shiftview.c"
+#include "movecenter.c"
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = dmenucmd } },
@@ -112,6 +113,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Left,   shiftview,      {.i = -1} },
 	{ MODKEY,                       XK_Up,     focusstack,     {.i = -1} },
 	{ MODKEY,                       XK_Down,   focusstack,     {.i = +1} },
+	{ MODKEY,                       XK_x,      movecenter,     {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

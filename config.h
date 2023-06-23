@@ -84,7 +84,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Print,  spawn,          SHCMD("scrot -F - | xclip -sel clip -t image/png") },
-	{ MODKEY,ShiftMask              XK_Print,  spawn,          SHCMD("scrot -s -F - | xclip -sel clip -t image/png") },
+	{ MODKEY|ShiftMask,             XK_Print,  spawn,          SHCMD("scrot -s -F - | xclip -sel clip -t image/png") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

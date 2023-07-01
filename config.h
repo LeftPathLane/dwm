@@ -10,29 +10,16 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Hasklug Nerd Font:size=12" };
 static const char dmenufont[]       = "Hasklug Nerd Font:size=12";
 static const char dmenulines[]      = "10";
-
-static const char col_nord0[] = "#2E3440";
-static const char col_nord1[] = "#3B4252";
-static const char col_nord2[] = "#434C5E";
-static const char col_nord3[] = "#4C566A";
-static const char col_nord4[] = "#D8DEE9";
-static const char col_nord5[] = "#E5E9F0";
-static const char col_nord6[] = "#ECEFF4";
-static const char col_nord7[] = "#8FBCBB";
-static const char col_nord8[] = "#88C0D0";
-static const char col_nord9[] = "#81A1C1";
-static const char col_nord10[] = "#5E81AC";
-static const char col_nord11[] = "#BF616A";
-static const char col_nord12[] = "#D08770";
-static const char col_nord13[] = "#EBCB8B";
-static const char col_nord14[] = "#A3BE8C";
-static const char col_nord15[] = "#B48EAD";
-
-
-static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_nord4, col_nord0, col_nord1 },
-	[SchemeSel]  = { col_nord4, col_nord1,  col_nord14  },
+static char normbgcolor[]           = "#2E3440";
+static char normbordercolor[]       = "#3B4252";
+static char normfgcolor[]           = "#D8DEE9";
+static char selfgcolor[]            = "#ECEFF4";
+static char selbordercolor[]        = "#A3BE8C";
+static char selbgcolor[]            = "#5E81AC";
+static char *colors[][3] = {
+       /*               fg           bg           border   */
+       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+       [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
 };
 
 /* tagging */
@@ -44,7 +31,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating  isterminal  noswallow  monitor */
-	{"Alacritty", NULL,       NULL,       0,            0,          1,          0,         -1,}
+  {"st",        NULL,       NULL,       0,            0,          1,          0,         -1 },
 };
 
 /* layout(s) */
@@ -73,8 +60,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_nord0, "-nf", col_nord4, "-sb", col_nord10, "-sf", col_nord6, "-l", dmenulines, "-c", NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, "-l", dmenulines, "-c", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 #include "movestack.c"
 #include "shiftview.c"
@@ -115,6 +102,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Up,     focusstack,     {.i = -1} },
 	{ MODKEY,                       XK_Down,   focusstack,     {.i = +1} },
 	{ MODKEY,                       XK_x,      movecenter,     {0} },
+	{ MODKEY,                       XK_y,      xrdb,           {.v = NULL} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

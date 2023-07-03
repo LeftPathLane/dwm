@@ -32,6 +32,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating  isterminal  noswallow  monitor */
   {"st",        NULL,       NULL,       0,            0,          1,          0,         -1 },
+  {"st-scratch",NULL,       NULL,       0,            1,          1,          1,         -1 },
 };
 
 /* layout(s) */
@@ -72,6 +73,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Print,  spawn,          SHCMD("scrot -F - | xclip -sel clip -t image/png") },
 	{ MODKEY|ShiftMask,             XK_Print,  spawn,          SHCMD("scrot -s -F - | xclip -sel clip -t image/png") },
+	{ MODKEY,                       XK_apostrophe, spawn,      SHCMD("st -c st-scratch") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
